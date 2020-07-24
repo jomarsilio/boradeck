@@ -24,7 +24,8 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Comandas</a>
+            <!-- <a href="#" class="nav-link">Comandas</a> -->
+            <a href="#" class="nav-link" data-show-content="home">Início</a>
           </li>
         </ul>
       </nav>
@@ -116,21 +117,21 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-show-content="notes">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Entrada NF</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-show-content="providers">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Produtos</p>
+                      <p>Fornecedores</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-show-content="products">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Fornecedores</p>
+                      <p>Produtos</p>
                     </a>
                   </li>
                 </ul>
@@ -183,6 +184,340 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid pt-3">
+
+          <!-- HOME -->
+          <div class="row m-4" id ="home">
+            
+              <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="notes">
+                <i class="fas fa-plus fa-lg mb-2"></i>
+                <h5 class="mt-2">Entrada NF</h5>
+              </a>
+              <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="providers">
+                <i class="fas fa-plus fa-lg mb-2"></i>
+                <h5 class="mt-2">Fornecedores</h5>
+              </a>
+              <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="products">
+                <i class="fas fa-plus fa-lg mb-2"></i>
+                <h5 class="mt-2">Produtos</h5>
+              </a>
+            
+          </div>
+
+          <!-- ENTRADA DE NF -->
+          <div class="row" id="notes">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <!-- Title -->
+                  <h3 class="card-title">Entrada de NF</h3>
+                  <!-- Search -->
+                  <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>NF</th>
+                        <th>Fornecedor</th>
+                        <th>Data</th>
+                        <th>Valor total</th>
+                        <th style="width:2%;">
+                          <button type="button" class="btn btn-block btn-default btn-xs" data-toggle="modal" data-target="#modal-notes-add">
+                            Nova entrada
+                          </button>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>45678</td>
+                        <td>Giassi</td>
+                        <td>19/06/2020</td>
+                        <td>R$ 150,00</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-notes-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-notes-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>123789</td>
+                        <td>Pata Negra</td>
+                        <td>20/06/2020</td>
+                        <td>R$ 2.000,00</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-notes-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-notes-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 d-flex justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Modal notes Add -->
+              <div class="modal fade" id="modal-notes-add">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Entrada de NF</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form role="form">
+                        <div class="form-group">
+                          <label for="note-provider">Fornecedor</label>
+                          <select class="form-control select2" style="width: 100%;" id="note-provider">
+                            <option>Informe o fornecedor</option>
+                            <option>Giassi</option>
+                            <option>Pata Negra</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="note-number">Número da NF</label>
+                          <input type="number" class="form-control" id="note-number" placeholder="000000">
+                        </div>
+                        <div class="form-group">
+                          <label for="note-entry-date">Data de entrada</label>
+                          <input type="text" class="form-control" id="note-entry-date" placeholder="00/00/0000">
+                        </div>
+                        <div class="form-group">
+                          <label for="note-total-amount">Valor total</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">R$</span>
+                            </div>
+                            <input type="text" class="form-control" id="note-total-amount" placeholder="000,00">
+                          </div>
+                        </div>
+                        <h5 class="mt-4 mb-2">Produtos</h5>
+                        <div id="note-products">
+                          <div class="row">
+                            <div class="col-6">Produto</div>
+                            <div class="col-2">Quantidade</div>
+                            <div class="col-2">Valor unitário</div>
+                            <div class="col-2">Valor total</div>
+                          </div>
+                          <div class="row mt-1">
+                            <div class="col-6">
+                              <select class="form-control select2" style="width: 100%;" id="note-product-id">
+                                <option>Selecione o produto</option>
+                                <option>Coca-cola</option>
+                                <option>Chopp de vinho</option>
+                              </select>
+                            </div>
+                            <div class="col-2">
+                              <input type="number" class="form-control" id="note-product-units" placeholder="000000">
+                            </div>
+                            <div class="col-2">
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" class="form-control" id="note-product-unit-amount" placeholder="000,00">
+                              </div>
+                            </div>
+                            <div class="col-2">
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="text" class="form-control" id="note-product-total-amount" placeholder="000,00">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="text-dark" onclick=" $('#note-products div.row:last').clone().appendTo('#note-products');">
+                          <i class="fas fa-plus-square"></i>
+                        </a>                       
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn bg-primary">Salvar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal notes Delete -->
+              <div class="modal fade" id="modal-notes-delete">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Confirme a exclusão desta entrada de NF</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Você tem certeza que deseja excluir a NF de nº <b>45678</b> do fornecedor <b>Giassi</b>?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-primary">Excluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORNECEDORES -->
+          <div class="row" id="providers">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <!-- Title -->
+                  <h3 class="card-title">Fornecedores</h3>
+                  <!-- Search -->
+                  <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Cidade</th>
+                        <th>Documento</th>
+                        <th style="width:2%;">
+                          <button type="button" class="btn btn-block btn-default btn-xs" data-toggle="modal" data-target="#modal-providers-add">
+                            Novo fornecedor
+                          </button>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Giassi</td>
+                        <td>(48) 3524.0401</td>
+                        <td>Tubarão</td>
+                        <td>83.648.477/0024-00</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-providers-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-providers-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>Pata Negra</td>
+                        <td>(48) 3524.0401</td>
+                        <td>Lá bem longe</td>
+                        <td>83.648.477/0001-00</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-providers-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-providers-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 d-flex justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Modal providers Add -->
+              <div class="modal fade" id="modal-providers-add">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Novo fornecedor</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form role="form">
+                        <div class="form-group">
+                          <label for="provider-name">Nome</label>
+                          <input type="text" class="form-control" id="provider-name" placeholder="Nome do fornecedor">
+                        </div>
+                        <div class="form-group">
+                          <label for="provider-document">Documento</label>
+                          <input type="text" class="form-control" id="provider-document" placeholder="00.000.000/0000-00">
+                        </div>
+                        <div class="form-group">
+                          <label for="provider-phone">Telefone</label>
+                          <input type="text" class="form-control" id="provider-phone" placeholder="(48) 0000-0000">
+                        </div>
+                        <div class="form-group">
+                          <label for="provider-contact">Pessoa de contato</label>
+                          <input type="text" class="form-control" id="provider-contact" placeholder="Pessoa de contato">
+                        </div>
+                        <div class="form-group">
+                          <label for="provider-city">Cidade</label>
+                          <input type="text" class="form-control" id="provider-city" placeholder="Cidade">
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="provider-active">
+                          <label class="form-check-label" for="provider-active" chacked>Ativo</label>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn bg-primary">Salvar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal providers Delete -->
+              <div class="modal fade" id="modal-providers-delete">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Confirme a exclusão deste fornecedor</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Você tem certeza que deseja excluir o fornecedor <b>Giassi</b>?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-primary">Excluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- PRODUTOS -->
           <div class="row" id="products">
             <div class="col-12">
@@ -325,9 +660,7 @@
                       <button type="button" class="btn btn-primary">Excluir</button>
                     </div>
                   </div>
-                  <!-- /.modal-content -->
                 </div>
-                <!-- /.modal-dialog -->
               </div>
             </div>
           </div>
@@ -349,7 +682,25 @@
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2();
+
+    // Esconde os contents
+    $('.content .container-fluid div.row:visible').hide();
+    $('.content .container-fluid div.row#home').show();
   });
+
+  $("body").on("click",'[data-show-content]',function(e){
+    e.preventDefault();
+
+    var a = $(e.currentTarget);
+    var id = a.attr('data-show-content');
+
+    $('.content .container-fluid div.row:visible').hide();
+    $('.content .container-fluid').find('#'+id).show();
+
+
+  });
+
+
 </script>
 
 </body>
