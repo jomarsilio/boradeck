@@ -75,13 +75,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-show-content="payment-types">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Tipo de pagamento</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-show-content="tables">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Mesas</p>
                     </a>
@@ -186,21 +186,275 @@
         <div class="container-fluid pt-3">
 
           <!-- HOME -->
-          <div class="row m-4" id ="home">
-            
-              <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="notes">
-                <i class="fas fa-plus fa-lg mb-2"></i>
-                <h5 class="mt-2">Entrada NF</h5>
-              </a>
-              <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="providers">
-                <i class="fas fa-plus fa-lg mb-2"></i>
-                <h5 class="mt-2">Fornecedores</h5>
-              </a>
-              <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="products">
-                <i class="fas fa-plus fa-lg mb-2"></i>
-                <h5 class="mt-2">Produtos</h5>
-              </a>
-            
+          <div class="row ml-4 mt-3" id ="home">
+            <div class="col-12">
+              <h4>Caixa</h4>
+            </div>
+            <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="payment-types">
+              <i class="fas fa-plus fa-lg mb-2"></i>
+              <h5 class="mt-2">Tipo de pagamento</h5>
+            </a>
+            <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="tables">
+              <i class="fas fa-plus fa-lg mb-2"></i>
+              <h5 class="mt-2">Mesas</h5>
+            </a>
+
+            <div class="col-12 mt-4">
+              <h4>Estoque</h4>
+            </div>
+          
+            <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="notes">
+              <i class="fas fa-plus fa-lg mb-2"></i>
+              <h5 class="mt-2">Entrada NF</h5>
+            </a>
+            <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="providers">
+              <i class="fas fa-plus fa-lg mb-2"></i>
+              <h5 class="mt-2">Fornecedores</h5>
+            </a>
+            <a href="" class="col-2 bg-secondary text-center p-5 mr-4" data-show-content="products">
+              <i class="fas fa-plus fa-lg mb-2"></i>
+              <h5 class="mt-2">Produtos</h5>
+            </a>
+          </div>
+
+          <!-- TIPO DE PAGAMENTO -->
+          <div class="row" id="payment-types">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <!-- Title -->
+                  <h3 class="card-title">Tipo de pagamento</h3>
+                  <!-- Search -->
+                  <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th style="width:2%;">
+                          <button type="button" class="btn btn-block btn-default btn-xs" data-toggle="modal" data-target="#modal-payment-types-add">
+                            Novo tipo
+                          </button>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Dinheiro</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-payment-types-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-payment-types-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Cartão de crédito</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-payment-types-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-payment-types-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Cartão de débito</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-payment-types-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-payment-types-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 d-flex justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Modal Products Add -->
+              <div class="modal fade" id="modal-payment-types-add">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Novo tipo de pagamento</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form role="form">
+                        <div class="form-group">
+                          <label for="payment-type-name">Nome</label>
+                          <input type="text" class="form-control" id="payment-type-name" placeholder="Nome do tipo de pagamento">
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="payment-type-active">
+                          <label class="form-check-label" for="payment-type-active" chacked>Ativo</label>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn bg-primary">Salvar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal Produtc Delete -->
+              <div class="modal fade" id="modal-payment-types-delete">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Confirme a exclusão deste tipo de pagamento</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Você tem certeza que deseja excluir o tipo de pagamento <b>Dinheiro</b>?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-primary">Excluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MESA -->
+          <div class="row" id="tables">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <!-- Title -->
+                  <h3 class="card-title">Mesas</h3>
+                  <!-- Search -->
+                  <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th style="width:2%;">
+                          <button type="button" class="btn btn-block btn-default btn-xs" data-toggle="modal" data-target="#modal-tables-add">
+                            Nova mesa
+                          </button>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Mesa 1</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-tables-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-tables-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Mesa 2</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-tables-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-tables-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Mesa 3</td>
+                        <td>
+                          <a href="#" class="text-dark mr-1" data-toggle="modal" data-target="#modal-tables-add"><i class="fas fa-pen"></i></a>
+                          <a href="" class="text-dark" data-toggle="modal" data-target="#modal-tables-delete"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 d-flex justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Modal Products Add -->
+              <div class="modal fade" id="modal-tables-add">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Nova mesa</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form role="form">
+                        <div class="form-group">
+                          <label for="table-name">Nome</label>
+                          <input type="text" class="form-control" id="table-name" placeholder="Nome da mesa">
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="table-active">
+                          <label class="form-check-label" for="table-active" chacked>Ativo</label>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn bg-primary">Salvar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal Produtc Delete -->
+              <div class="modal fade" id="modal-tables-delete">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Confirme a exclusão desta mesa</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Você tem certeza que deseja excluir a mesa <b>Mesa 1</b>?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-primary">Excluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- ENTRADA DE NF -->
@@ -298,7 +552,12 @@
                         </div>
                         <div class="form-group">
                           <label for="note-entry-date">Data de entrada</label>
-                          <input type="text" class="form-control" id="note-entry-date" placeholder="00/00/0000">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="note-entry-date" placeholder="99/99/9999" data-inputmask='"mask": "99/99/9999"' data-mask>
+                          </div>
                         </div>
                         <div class="form-group">
                           <label for="note-total-amount">Valor total</label>
@@ -468,12 +727,23 @@
                         </div>
                         <div class="form-group">
                           <label for="provider-document">Documento</label>
-                          <input type="text" class="form-control" id="provider-document" placeholder="00.000.000/0000-00">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="provider-document" placeholder="99.999.999/9999-99" data-inputmask='"mask": "99.999.999/9999-99"' data-mask>
+                          </div>
                         </div>
                         <div class="form-group">
                           <label for="provider-phone">Telefone</label>
-                          <input type="text" class="form-control" id="provider-phone" placeholder="(48) 0000-0000">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="provider-phone" placeholder="(99) 999-9999" data-inputmask='"mask": "(99) 999-9999"' data-mask>
+                          </div>
                         </div>
+
                         <div class="form-group">
                           <label for="provider-contact">Pessoa de contato</label>
                           <input type="text" class="form-control" id="provider-contact" placeholder="Pessoa de contato">
@@ -622,6 +892,20 @@
                           <input type="number" class="form-control" id="product-min-stock" value="1">
                         </div>
                         <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="product-combo">
+                          <label class="form-check-label" for="product-combo">Combo</label>
+                        </div>
+                        <div class="form-group">
+                          <select class="select2" multiple="multiple" data-placeholder="Selecione os produtos do combo" style="width: 100%;">
+                            <option>Coca-cola</option>
+                            <option>Chopp de vinho</option>
+                            <option>Caipira de morango</option>
+                            <option>Caipira de limão</option>
+                            <option>Caipira de vinho</option>
+                          </select>
+                        </div>
+
+                        <div class="form-check">
                           <input type="checkbox" class="form-check-input" id="product-for-sale">
                           <label class="form-check-label" for="product-for-sale">Vendável</label>
                         </div>
@@ -653,7 +937,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <p>Você tem certeza que deseja excluir o produto <b>Coca-cola</b>>?</p>
+                      <p>Você tem certeza que deseja excluir o produto <b>Coca-cola</b>?</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -675,6 +959,8 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Select2 -->
 <script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 
@@ -686,6 +972,9 @@
     // Esconde os contents
     $('.content .container-fluid div.row:visible').hide();
     $('.content .container-fluid div.row#home').show();
+
+    // Máscaras
+    $('[data-mask]').inputmask();
   });
 
   $("body").on("click",'[data-show-content]',function(e){
